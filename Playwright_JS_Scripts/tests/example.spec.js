@@ -1,11 +1,18 @@
 // @ts-check
-import { test, expect } from '@playwright/test';
+import { test, expect,defineConfig } from '@playwright/test';
 import HomePage from '../UI_Test/Pages/HomePage';
 import ManFashionMenu from '../UI_Test/Pages/ManFashionMenu';
 import ShoesMenu from '../UI_Test/Pages/ShoesMenu';
 import ShoesProductFilter from '../UI_Test/Product Filter/ShoesProductFilter'
 import Util from '../UI_Test/Utility/Util'
 import CartPage from '../UI_Test/Pages/CartPage'
+
+export default defineConfig({
+  use: {
+    //actionTimeout: 10 * 1000,
+    navigationTimeout: 30 * 1000,
+  },
+});
 
 
 test.use({viewport: {width:1560 , height:855 }})
