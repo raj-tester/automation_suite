@@ -31,6 +31,7 @@ test('My first test', async({browser}) => {
       let  subTotalValue= await utilObj.getsubTotal();
       let subTotal = parseFloat(subTotalValue.replace(/[^\d.-]/g, '').replace(',', ''));
       console.log(subTotal);
+      
       const allPages = context.pages();
 
      // console.log(allPages.length);

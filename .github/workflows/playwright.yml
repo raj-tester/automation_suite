@@ -1,6 +1,9 @@
 name: Automated UI tests using Playwright JS
 
-on: push
+on:
+  push:
+    paths:
+      - 'Playwright_JS_Scripts/**'
 
 jobs:
   test:
