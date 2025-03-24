@@ -101,7 +101,8 @@ it("Verify the 'POST' response payload follows json schema for '/pet' route", fu
     chai.request(baseURL)
     .get(`/pet/${postData.createPet.id}`)
     .end(function(err,res){
-    expect(res.body).to.be.jsonSchema(dataSchema.createPet.paths["/pet/{petId}"]);
+    
+        expect(res.body).to.be.jsonSchema(dataSchema.createPet.paths["/pet/{petId}"]);
         if(err){
             done(err);
             }
