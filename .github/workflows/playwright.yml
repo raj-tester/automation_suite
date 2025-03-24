@@ -89,7 +89,7 @@ jobs:
       - name: Install Postman CLI
         run: |
           cd API_tests
-          sh 'curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh'
+          curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
       - name: Login to Postman CLI
         run: |
           cd API_tests
