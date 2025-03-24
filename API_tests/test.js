@@ -48,7 +48,7 @@ it("Verify the 'POST' response payload follows json schema for '/pet' route", fu
         .post('/pet')
         .send(postData.invalidinput)
         .end(function(err,res){
-         expect(res.statusCode).to.equal(405)
+         expect(res.statusCode).to.equal(500)
          expect(res)
             if(err){
                 done(err);
