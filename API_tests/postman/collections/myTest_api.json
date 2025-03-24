@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "f094b891-c315-45a8-8fa7-7e15c9bc78c3",
-		"name": "myTest api",
+		"name": "myTest_api",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_uid": "39344920-f094b891-c315-45a8-8fa7-7e15c9bc78c3"
 	},
