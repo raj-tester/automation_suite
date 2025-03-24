@@ -48,33 +48,43 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install docker compose
         run: |
+          cd API_tests
           sudo apt install docker-compose
       - name: pull docker image
         run: |
+          cd API_tests
           docker pull swaggerapi/swagger-ui:v5.17.14
       - name: Run docker-compose
         run: |
+          cd API_tests
           docker-compose up -d
       - name: install npm
         run: |
+          cd API_tests
           npm install
       - name: install mocha
         run: |
+         cd API_tests
          npm i mocha
       - name: install chai
         run: |
+          cd API_tests
           npm i --save-dev chai
       - name: install chai-http
         run: |
+          cd API_tests
           npm i --save-dev chai-http
       - name: install chai-json-schema
         run: |
+          cd API_tests
           npm i --save-dev chai-json-schema
       - name: install mochawesome
         run: |
+          cd API_tests
           npm i npm i mochawesome-report-generator
       - name: run test
         run: |
+          cd API_tests
           npm test
             - name: Install Postman CLI
             - curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
