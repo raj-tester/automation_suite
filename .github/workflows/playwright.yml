@@ -4,31 +4,82 @@ on:
   push:
     paths:
       - 'Playwright_JS_Scripts/**'
+      - 'API_tests/**'
 
 jobs:
-  test:
+  run_ui_tests:
     timeout-minutes: 60
     runs-on: macos-latest
+
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-        node-version: lts/*
-    - name: Install dependencies
-      run: |
-        cd Playwright_JS_Scripts 
-        npm ci
-    - name: Install Playwright Browsers
-      run: |
-        cd Playwright_JS_Scripts 
-        npx playwright install --with-deps
-    - name: Run Playwright tests
-      run: |
-        cd Playwright_JS_Scripts 
-        npx playwright test --project webkit
-    - uses: actions/upload-artifact@v4
-      if: ${{ !cancelled() }}
-      with:
-        name: playwright-report
-        path: playwright-report/
-        retention-days: 30
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 'lts/*'
+
+      - name: Install dependencies
+        run: |
+          cd Playwright_JS_Scripts
+          npm ci
+
+      - name: Install Playwright Browsers
+        run: |
+          cd Playwright_JS_Scripts
+          npx playwright install --with-deps
+
+      - name: Run Playwright tests
+        run: |
+          cd Playwright_JS_Scripts
+          npx playwright test --project=webkit
+
+      - name: Upload Playwright report
+        uses: actions/upload-artifact@v2
+        with:
+          name: playwright-report
+          path: Playwright_JS_Scripts/playwright-report/
+          retention-days: 30
+  
+  run_api_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install docker compose
+        run: |
+          sudo apt install docker-compose
+      - name: pull docker image
+        run: |
+          docker pull swaggerapi/swagger-ui:v5.17.14
+      - name: Run docker-compose
+        run: |
+          docker-compose up -d
+      - name: install npm
+        run: |
+          npm install
+      - name: install mocha
+        run: |
+         npm i mocha
+      - name: install chai
+        run: |
+          npm i --save-dev chai
+      - name: install chai-http
+        run: |
+          npm i --save-dev chai-http
+      - name: install chai-json-schema
+        run: |
+          npm i --save-dev chai-json-schema
+      - name: install mochawesome
+        run: |
+          npm i npm i mochawesome-report-generator
+      - name: run test
+        run: |
+          npm test
+            - name: Install Postman CLI
+            - curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
+      - name: Login to Postman CLI
+        run: postman login --with-api-key ${{ secrets.MYKEY }}
+      - name: Run API tests
+        run: |
+           postman collection run "${{ github.workspace }}/postman/collections/myTest api.json"
