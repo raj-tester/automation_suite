@@ -86,8 +86,10 @@ jobs:
         run: |
           cd API_tests
           npm test
-            - name: Install Postman CLI
-            - curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
+      - name: Install Postman CLI
+        run: |
+          cd API_tests
+          curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
       - name: Login to Postman CLI
         run: postman login --with-api-key ${{ secrets.MYKEY }}
       - name: Run API tests
