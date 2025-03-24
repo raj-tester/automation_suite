@@ -31,16 +31,6 @@ test('My first test', async({browser}) => {
       let  subTotalValue= await utilObj.getsubTotal();
       let subTotal = parseFloat(subTotalValue.replace(/[^\d.-]/g, '').replace(',', ''));
       console.log(subTotal);
-      
-      const allPages = context.pages();
-
-     // console.log(allPages.length);
-
-     // let subTotalText = await page.locator("(//span[contains (@class, 'sc-price')])[1]");
-      //let contentText = await subTotalText().textContent;
-      
-
-      //console.log(subTotalText);
 
     if(subTotal > 1500)
       {

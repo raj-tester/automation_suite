@@ -1,7 +1,3 @@
-//import CartPage from '../Pages/CartPage'
-
-//const cartPageObj = new CartPage()
-
 class Util {
 
    
