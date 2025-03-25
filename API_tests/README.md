@@ -2,33 +2,28 @@
 
 Project Description:
 
-Node.js Framework used are: Mocha, chai, chai-http, chai-json-schema, mochawesome-report-generator
+This a sample api test automation project developed to demonstrate technical skills in writing API test automation, mainly focussed on setting up the frameworks and running end-to-end sample tests integrating with CI/CD(Github actions).
 
-Instruction:
+To demonstrate API_tests contains two test frameworks:
 
-install mocha globally using: npm install -g mocha
+1. Postman collection framework.
 
-install chai under dev dependencices: npm install chai --save-dev
+2. Node.js Framework using: Mocha, chai, chai-http, chai-json-schema, mochawesome-report-generator
+   
 
-install chai-http under dev dependencices: npm install chai-http --save-dev
+Instructions to run locally using mocha:
 
-install chai-json-schema under dev dependencices: npm install chai-json-schema --save-dev
+1. Clone the repo
+2. change the directory to API_tests
+3. run command: npm test
 
-install  chai-asserttype under dev dependencices: npm install chai-asserttype --save-dev
+To describe the assets used in the frameworks:
 
-install mochawesome reporting tool: npm i mochawesome-report-generator
-
-
-There are three 3 javascript files i have created:
 1. Test.js: this file has all the test cases for api_testing.
 
-2.apiData.js : this file will be used as a data repository to store different types of data as per our business requirements and all data call will be happening from this file to test.js
+2.apiData.js: this file will be used as a data repository to store different types of data as per our business requirements and all data calls will be happening from this file to test.js
 
-3.jsonSchema.js: this file will be used as a data repository to store different data schema getting used in our system.
+3.jsonSchema.js: this file will be used as a data repository to store different data schemas used in our system.
 
-Run command:
 
-CMD or terminal run: npm test
-
-Test Report is generated in html format. please check mochawesome-report-> mochawesome.html file for test report.
-
+Both frameworks run validations for Pet_Store API running through docker-compose. These validations are getting triggered using GitHub actions workflow.
