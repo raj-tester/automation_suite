@@ -1,21 +1,21 @@
-class ShoesMenu{
+class ShoesMenu {
 
-    constructor(page){
-      this.page = page
-      this.menu = { 
-        
-        shoeOptions:[
-          {
-        formalShoes: '//span[text()="Formal Shoes"]'
-          }
-        ]
+  constructor(page) {
+    this.page = page
+    this.menu = {
+
+      shoeOptions: [
+        {
+          formalShoes: '//span[text()="Formal Shoes"]'
+        }
+      ]
     }
 
   }
 
-  async viewFormalShoes(){
+  async viewFormalShoes() {
     await this.page.click(this.menu.shoeOptions[0].formalShoes);
 
-}
+  }
 }
 export default ShoesMenu;
