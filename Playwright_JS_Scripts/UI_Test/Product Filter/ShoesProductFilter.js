@@ -1,12 +1,9 @@
 var testData = require('../TestData/MainData')
 
-
 class ShoesProductFilter {
-
     constructor(page) {
         this.page = page
         this.Productfilters = {
-
             brand: [
 
                 {
@@ -29,27 +26,19 @@ class ShoesProductFilter {
     async filterSelection() {
         let brandFilter = testData.filterData.Brand;
         let ukSizeFilter = testData.filterData.UKSize;
-
         for (var x = 0; x < this.Productfilters.Uksize.length; x++) {
-
             if (this.Productfilters.Uksize[x].hasOwnProperty([ukSizeFilter])) {
                 await this.page.click(this.Productfilters.Uksize[x][ukSizeFilter]);
-
-            }
+             }
         }
 
         for (var x = 0; x < this.Productfilters.brand.length; x++) {
-
-            if (this.Productfilters.brand[x].hasOwnProperty([brandFilter])) {
-
+           if (this.Productfilters.brand[x].hasOwnProperty([brandFilter]))
+             {
                 await this.page.click(this.Productfilters.seeMoreLink);
-
                 await this.page.click(this.Productfilters.brand[x][brandFilter]);
-
                 break;
-
-
-            }
+             }
 
         }
     }

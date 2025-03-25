@@ -1,6 +1,4 @@
 class Util {
-
-
   constructor(page) {
     this.page = page
     this.addToCart = "//input[@name='submit.add-to-cart']"
@@ -8,22 +6,19 @@ class Util {
     this.newWindow = null;
 
   }
-  
-  async addProductCart(newWindow) {
+
+  async addProductCart(newWindow) 
+  {
     newWindow.click(this.addToCart)
   }
 
-  async getsubTotal() {
-
+  async getsubTotal()
+   {
     return await this.newWindow.locator("//span[@id = 'sc-subtotal-amount-activecart']/span[contains (@class, 'sc-price')]").textContent();
-
-
-  }
+   }
 
 
   async selecttheProduct(totalProduct, context, page1) {
-
-
     for (let x = 1; x <= totalProduct; x++) {
       [this.newWindow] = await Promise.all([
         context.waitForEvent('page'),
@@ -42,16 +37,7 @@ class Util {
       }
     }
     //await this.newWindow.bringToFront();
-
-
-
-
-
-
-
-
-  }
 }
-
+}
 
 export default Util;
