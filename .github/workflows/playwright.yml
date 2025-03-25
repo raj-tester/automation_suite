@@ -30,17 +30,20 @@ jobs:
           cd Playwright_JS_Scripts
           npx playwright install --with-deps
 
+      - name: Install Playwright Browsers
+        run: |
+            cd Playwright_JS_Scripts
+            npm install --save-dev @playwright/test allure-playwright
+
       - name: Run Playwright tests
         run: |
           cd Playwright_JS_Scripts
           npx playwright test --project=webkit
 
-      - name: Upload Playwright report
-        uses: actions/upload-artifact@v4
-        with:
-          name: playwright-report
-          path: Playwright_JS_Scripts/playwright-report/
-          retention-days: 30
+      - name: Publish Playwright allure report
+        run: |
+          cd Playwright_JS_Scripts
+          allure serve allure-results
   
   run_api_tests:
     runs-on: ubuntu-latest
