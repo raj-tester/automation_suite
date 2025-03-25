@@ -1,74 +1,35 @@
-# api_test
+**Project Description:**
 
-Project Description:
+This a sample UI functional test automation project developed to demonstrate technical skills in writing UI test automation, mainly focussed on setting up the frameworks and running end-to-end sample tests integrating with CI/CD(Github actions).
 
-Node.js Framework used are: Mocha, chai, chai-http, chai-json-schema
+To demonstrate, UI tests using the **Playwright** framework:
 
-Instruction:
-install mocha globally using: npm install -g mocha
+To implement the UI tests I have taken an example of www.amazon.in, performing buyers actions using Page Object Model pattern.
 
-install chai under dev dependencices: npm install chai --save-dev
+**User Actions performed:**
 
-install chai-http under dev dependencices: npm install chai-http --save-dev
+1. Go to www.amazon.in
+2. select categories of formal shoes
+3. add the filters to the product
+4. add at least 3 products to the cart
+5. check if the sub-total value of the cart is not more than 1500
+6. if yes, then delete the item from the cart
 
-install chai-json-schema under dev dependencices: npm install chai-json-schema --save-dev
+**To explain the folder structure:**
 
-install  chai-asserttype under dev dependencices: npm install chai-asserttype --save-dev
+**Page folder:** This folder will contain all the {page}.js file which would have all the elements present on that page.
+
+**Test Data Folder:** This folder will have js files containing the test data that we would like to pass for our test scenarios. for example, I have added the user filter for shoes like the company, and size the user wants to select and then these filters would be passed on to the Product filter js files.
+
+**Product Filter:** This folder will have js files that will get filter data from test Data and later it will apply filters so that it can be used directly in our test
+
+**Util folder:** This folder will have js files which would need to perform common actions on webpages.
+
+**tests:** This folder will have all test js files. 
 
 
-There are three 3 javascript files i have created:
-
-1. Test.js: this file has all the test cases for api_testing. To ease the maintainability we can sorted out test cases into different folder according to the http requests(GET, POST, DELETE, PUT) or according the system modules
-
-2.apiPostData.js : this file will be used as a data repository to store different types of data as per our business requirements and all data call would be happening from this file to test.js
-
-3.jsonSchema.js: this file will be used as a data repository to store different data schema getting used in our system.
-
-Test Scenarios coverage:
-
-1. GET and POST response json schema validation
-2. User record update using id
-3. User record delete using id
-4. User seach using id
-5. Error valiadations
-6. Response payload for POST which includes expected properties/field, not null/blank contstarints, and create date, datetype for ID
-7. Response payload for GET
-
-Run command:
-
-Go to the folder folder Leanspace->api_test which has test.js file and in the CMD or terminal run : npm test
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+These validations are getting triggered using the GitHub actions workflow.
 
 
 
-UI Test 
-
-Project Description:
-
-Node.js Framework used are:TestCafe
-
-Instruction:
-install testcafe globally using: npm install -g testcafe 
-
-File Structure:
-
-I have followed Page Object Model and have tried to maintain the hierarchy displayed at amazon.in 
-
-Page folder: This folder will contains all the {page}.js file which would have all the elements present on that page.
-
-Test Data Folder: This folder will have js files containing the test data which would like to pass for our test scenarios. for example, I have added the user filter for shoes like the company, and size user wants to select and then these filters would be passed on to the Product filter js files.
-
-Product Filter: This folder will have js files which would get filter data from test Data and later it will apply filters so that it could be used directly into our test
-
-Util folder: This folder will have js files which would need to perform common actions on webpages.
-
-Test : This folder will have all test js files. 
-
-
-Run command:
-
-Go to the folder folder Leanspace->UI_test which has test.js file and in the CMD or terminal run: testcafe chrome test.js --skip-js-errors -q. 
-
-note: You can add any browser you have installed locally on your system for example for firefox : testcafe firefox test.js --skip-js-errors -q
 
