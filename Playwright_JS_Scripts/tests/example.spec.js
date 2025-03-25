@@ -48,7 +48,7 @@ test('My first test', async({browser}) => {
             
       }
 
-      context.close();
+      page1.close();
 
 
   
