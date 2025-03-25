@@ -8,7 +8,7 @@ class Util {
     this.newWindow = null;
 
   }
-
+  
   async addProductCart(newWindow) {
     newWindow.click(this.addToCart)
   }
