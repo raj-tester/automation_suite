@@ -19,6 +19,7 @@
     "should": "^13.2.3"
   },
   "dependencies": {
-    "mocha": "^8.2.1"
+    "mocha": "^11.1.0",
+    "pwmochawesome": "^2.0.2"
   }
 }

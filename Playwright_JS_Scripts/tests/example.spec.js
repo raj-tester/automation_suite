@@ -12,6 +12,7 @@ export default defineConfig({
     //actionTimeout: 10 * 1000,
     navigationTimeout: 30 * 1000,
   },
+  retries: 2
 });
 
 

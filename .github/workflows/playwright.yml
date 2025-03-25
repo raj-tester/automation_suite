@@ -81,7 +81,7 @@ jobs:
       - name: install mochawesome
         run: |
           cd API_tests
-          npm i npm i mochawesome-report-generator
+          npm i mochawesome-report-generator
       - name: run test
         run: |
           cd API_tests
